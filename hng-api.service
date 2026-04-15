@@ -1,0 +1,12 @@
+[Unit]
+Description=HNG Stage 1 API
+After=network.target
+
+[Service]
+User=hngdevops
+WorkingDirectory=/home/hngdevops/hng-api
+ExecStart=/home/hngdevops/hng-api/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
